@@ -45,12 +45,15 @@ word2event[cls][cnt] = "Bar Continue"
 cnt += 1
 special_tok(cnt, cls)
 
+##############################################
 # Position
+# 16 beats -> 24 beats
 cnt, cls = 0, "Position"
-for i in range(1, 17):
-    event2word[cls][f"Position {i}/16"] = cnt
-    word2event[cls][cnt] = f"Position {i}/16"
+for i in range(1, 25):
+    event2word[cls][f"Position {i}/24"] = cnt
+    word2event[cls][cnt] = f"Position {i}/24"
     cnt += 1
+##############################################
 
 special_tok(cnt, cls)
 
@@ -81,11 +84,12 @@ for i in range(96):  # ignore sound effects and ethnic instruments
 
 special_tok(cnt, cls)
 
-### Customized ###
+####################################################
+# Customized Tokens
 
-# Instrument === Program
+## 1. Instrument === Program
 
-# Time Signature
+## 2. Simple Time Signature
 supported_time_signature = ["22", "24", "34", "44"]
 
 cnt, cls = 0, "Time Signature"
@@ -96,7 +100,7 @@ for i in supported_time_signature:
 
 special_tok(cnt, cls)
 
-### ---------- ###
+####################################################
 
 # print(event2word)
 # print(word2event)
